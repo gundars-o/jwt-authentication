@@ -4,3 +4,15 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/gundars-o/jwt-authentication.git
 git push -u origin main
+
+branch gundars
+npm init -y
+npm i express jsonwebtoken dotenv
+npm i --save-dev nodemon
+Create file .gitignore
+    with
+        node_modules
+        .env
+git add .
+git commit -m "Initiation"
+git push
