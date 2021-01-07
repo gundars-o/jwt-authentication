@@ -55,3 +55,31 @@ Connection: close
 git add .
 git commit -m "Get first response"
 git push
+
+branch gundars
+In terminal:
+    node
+    require( "crypto" ).randomBytes( 64 ).toString( "hex" )
+Create ACCESS_TOKEN_SECRET in .env and assign received random string.
+Send Request:
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "Kyle"
+}
+Answer:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 142
+ETag: W/"8e-LM98b/boU9LXOfQ7e0RRAsHeaGs"
+Date: Thu, 07 Jan 2021 12:56:22 GMT
+Connection: close
+
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAyNDE4Mn0.UuPtTrcAVllkx5tC_ktGw5WeP2sR2rZfHOMn7SXQe-8"
+}
+git add .
+git commit -m "Access token created"
+git push
