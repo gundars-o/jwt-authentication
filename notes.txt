@@ -109,3 +109,17 @@ Response body:
 git add .
 git commit -m "Authenticate Token"
 git push
+
+branch gundars
+Create file server2.js as file server.js copy.
+Change
+    app.listen( 3000 );
+to
+    app.listen( 4000 );
+npm run devStart
+npm run devStart2
+> Correct response received from both servers (on 3000 and 4000).
+Rename server2.js to authServer.js.
+git add .
+git commit -m "Separate authentication server created."
+git push
