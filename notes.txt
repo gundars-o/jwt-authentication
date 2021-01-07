@@ -83,3 +83,29 @@ Connection: close
 git add .
 git commit -m "Access token created"
 git push
+
+branch gundars
+Send request:
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "Kyle"
+}
+Response body:
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAyNjEyM30.YonlL-Sa-sfpKbws_gela83oAAhHROGXO5ls2vhYtbo"
+}
+Put received token in GET request:
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAyNjEyM30.YonlL-Sa-sfpKbws_gela83oAAhHROGXO5ls2vhYtbo
+Response body:
+[
+  {
+    "username": "Kyle",
+    "title": "Post 1"
+  }
+]
+git add .
+git commit -m "Authenticate Token"
+git push
