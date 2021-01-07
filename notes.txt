@@ -16,3 +16,13 @@ Create file .gitignore
 git add .
 git commit -m "Initiation"
 git push
+
+branch gundars
+start server:
+    npm run devStart
+stop server:
+    ctrl + C
+    Y (Hit Enter)
+git add .
+git commit -m "Start and End server"
+git push
