@@ -26,3 +26,32 @@ stop server:
 git add .
 git commit -m "Start and End server"
 git push
+
+branch gundars
+npm run devStart
+Install extension "REST Client"
+Create file requests.json with content:
+    GET http://localhost:3000/posts
+Click on "Send Request"
+Response:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 74
+ETag: W/"4a-1R4wY2kF/sIFyvoxeh6FQWeGVfI"
+Date: Thu, 07 Jan 2021 11:29:35 GMT
+Connection: close
+
+[
+  {
+    "username": "Kyle",
+    "title": "Post 1"
+  },
+  {
+    "username": "Jim",
+    "title": "Post 2"
+  }
+]
+git add .
+git commit -m "Get first response"
+git push
