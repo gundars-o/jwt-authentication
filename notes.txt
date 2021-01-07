@@ -128,3 +128,44 @@ branch gundars
 git add .
 git commit -m "Create refresh token."
 git push
+
+branch gundars
+Send initial request:
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "username": "Kyle"
+}
+Response body:
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAzNjYyMiwiZXhwIjoxNjEwMDM2NjQyfQ.gJQWsEEwuI1hvfQuP1tHcxMNf4rx5mE_q3Johvojqw8",
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAzNjYyMn0.28tVoXGDokg6fPUybl4a90HbW-8HfWokZQAEzzUIpQY"
+}
+Send request with a received refresh token:
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAzNjYyMn0.28tVoXGDokg6fPUybl4a90HbW-8HfWokZQAEzzUIpQY"
+}
+Response body:
+{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAzNzY0OSwiZXhwIjoxNjEwMDM3Njc5fQ.Kc7bsjjd2uEhsAC6rhuE20bXTr-aamM0r3ywBaYtHLs"}
+Send request with received access token:
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAzNzY0OSwiZXhwIjoxNjEwMDM3Njc5fQ.Kc7bsjjd2uEhsAC6rhuE20bXTr-aamM0r3ywBaYtHLs
+Response body:
+[{"username":"Kyle","title":"Post 1"}]
+When accsess token expired response body is:
+Forbidden
+Then send again the request:
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAzNzc4OH0.ehV9tj1QaO_GU1BT8ae1_a_Rq5Y1ezFcvhR70fBG4zU"
+}
+and get a new usable access token (for set amount of time)
+git add .
+git commit -m "Use the refresh token to create a new access token."
+git push
