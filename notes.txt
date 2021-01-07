@@ -169,3 +169,22 @@ and get a new usable access token (for set amount of time)
 git add .
 git commit -m "Use the refresh token to create a new access token."
 git push
+
+branch gundars
+Create refresh token with
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "username": "Kyle"
+}
+Sending DELETE post with refresh token will delete refresh token: 
+DELETE http://localhost:4000/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS3lsZSIsImlhdCI6MTYxMDAzOTgxMX0.jgduowqIu-4vl1RAdq_2Y_77pkaq6tMzb-7JzmF0y1I"
+}
+git add .
+git commit -m "Delete refresh token (Video finished)."
+git push
